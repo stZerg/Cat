@@ -1,0 +1,21 @@
+        <div class="box">
+            <div id="cart-<%- data.id %>" data-status="false" class="cart">
+                <div class="cat-image"><img src="images/cat.png" alt="CAT"></div>
+                <div class="cat-text">
+                    <div class="motto">Сказочное заморское яство</div>
+                    <h3>Нямушка</h3>
+                    <div class="name"><%- data.name %></div>
+                    <div class="info">
+                        <b><%- data.num %></b> порций<br>
+                        <%- data.mouse %><br>
+                        <%- data.add %>
+                    </div>
+                    <div id="circle-<%- data.id %>" class="cat-circle">
+                        <div class="price"><%- data.netto %></div>
+                        <div class="kg">кг</div>
+                    </div>
+                </div>
+                <div id="space-<%- data.id %>" class="cart-space"><img src="images/space.png" alt="Вкуснейшая еда" onclick="changeStatus('<%- data.id %>')" onmouseout="changeItem('<%- data.id %>')"></div>
+            </div>
+            <div><%- data.desc %></div>
+        </div>

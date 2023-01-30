@@ -1,0 +1,192 @@
+/* Базовые стили + подключаем два шрифта */
+/* Меняем размер тайтла в зависимости от размера экрана */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+@font-face {
+    font-family: "Exmo 2.0";
+    src: url("Exo2.0-Thin.otf") format("opentype");
+}
+@font-face {
+    font-family: "Trebuchet Ms";
+    src: url("Trebuchet-Ms.ttf") format("opentype");
+}
+body {
+    background: url("bg.png") 0 0 repeat;
+    color: #ffffff;
+    font-family: 'Trebuchet Ms';
+}
+a {
+    color: #1698d9;
+}
+a:hover {
+    color: #d91667;
+}
+a:visited {
+    color: #d2d2d2;
+}
+.title {
+    width: 100%;
+    height: 90px;
+    padding-top: 14px;
+}
+h1 {
+    text-align: center;
+    line-height: 90px;
+    font-family: 'Exmo 2.0';
+    font-size: 36px;
+    font-weight: 300;
+}
+@media(max-width: 500px){
+    h1 {
+        text-align: center;
+        font-family: 'Exmo 2.0';
+        font-size: 24px;
+        font-weight: 300;
+    }
+}
+
+/* Невидимый блок для предварительной загрузки картинок */
+
+.preload {
+    position:fixed;
+    left:9999px;
+    opacity:0;
+}
+
+/* Реализуем через FLEX расположение блоков при разной ширине экрана (ряд, ёлочкой, столбик) */
+
+section {
+    display: flex;           /* NEW, Spec - Firefox, Chrome, Opera */
+    display: -webkit-box;    /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;    /* TWEENER - IE 10 */
+    display: -webkit-flex;   /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+
+    -webkit-box-pack: center;        
+    -webkit-box-align: center;
+
+    flex-flow: row wrap;
+
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+}
+
+/* Основной блок рекламного блока */
+
+.box {
+    width: 320px;
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 40px;
+    display: block;
+}
+
+/* Стили для пассивных рекламных блоков */
+
+.cart-grey {
+    background: url("cart-grey.png") !important;
+}
+.yellow {
+    color: #ffff66;
+}
+.grey {
+    color: #d2d2d2 !important;
+}
+
+/* Базовая подложка для рекламного блока */
+
+.cart {
+    width: 320px;
+    height: 480px;
+    margin-bottom: 13px;
+    overflow: hidden;
+    background: url("cart-blue.png") 0 0 no-repeat;
+}
+
+/* Блок и картинка с кошкой - накладывается на подложку */
+
+.cat-image {
+    z-index: 2;
+    position: absolute;
+}
+.cat-images img {
+    width: 320px;
+    height: 480px;
+}
+
+/* Блок с основным текстом - накладывается на подложку */
+
+.cat-text {
+    z-index: 3;
+    position: absolute;
+    padding-left: 50px;
+    text-align: left;
+}
+
+/* Данный блок с прозрачной картинкой накладывается на рекламный блок */
+/* Пользовательские события отрабатываются на нем */
+
+.cart-space {
+    z-index: 4;
+    position: absolute;
+    width: 320px;
+    height: 480px;
+    cursor: pointer;
+}
+.cart-space img {
+    width: 320px;
+    height: 480px;
+    border: 0px;
+}
+
+/* Ниже реализованы стили для текста в рекламном блоке */
+
+.cat-text .motto {
+    font-size: 16px;
+    color: #666666;
+    line-height: 40px;
+    padding-top: 10px;
+}
+.cat-text h3 {
+    font-size: 48px;
+    color: #000000;
+    line-height: 48px;
+}
+.cat-text .name {
+    font-size: 24px;
+    color: #000000;
+    line-height: 36px;
+}
+.cat-text .info {
+    font-size: 14px;
+    color: #666666;
+    padding: 10px 0;
+    height: 30px;
+}
+
+/* Реализация круга под вес товара + изменение цвета + стили текста в круге  */
+
+.cat-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    background-color: #1698d9;
+    margin: 198px 0 0 174px;
+}
+.grey_bg {
+    background-color: #b3b3b3 !important;
+}
+.cat-circle .price {
+    font-size: 42px;
+    line-height: 42px;
+    color: #ffffff;
+    text-align: center;
+    padding-top: 10px;
+}
+.cat-circle .kg {
+    font-size: 21px;
+    line-height: 21px;
+    color: #ffffff;
+    text-align: center;
+}

@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<%- include('head'); %>
+</head>
+<body>
+    <!-- Предварительная загрузка не активной подложки для рекламного блока -->
+    <div class="preload">
+        <img src="images/cart-red.png" alt="Red Cat">
+    </div>
+    <div class="title">
+        <h1><%= title %></h1>
+    </div>
+    <!-- Основная секция. В цикле выводятся рекламные блоки. Информация с массива data. Править в основном фале app.js -->
+    <section><% data.forEach(function(data) { %>
+<% if (data.status == 'on') { %><%- include('catOn', {data}); %>
+<% } else { %><%- include('catOff', {data}); %><% } %>
+    <% }); %></section>
+</body>
+</html>
